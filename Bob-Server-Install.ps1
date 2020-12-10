@@ -246,7 +246,7 @@ Function CreateScedualedTask {
         'n'{Echo "You will need to create an entry in task scheduler that runs $SetSvrPath\Restart.bat at your perferred time"}
         default {
             echo "input not valid" 
-            Start1
+            CreateScedualedTask
         }
     }
 }
