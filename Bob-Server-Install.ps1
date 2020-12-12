@@ -173,7 +173,7 @@ Function BuildAdvancedScript {
     $AltScriptVariables = '$StateData = ',"""$SetSvrPath\Automation\State.ini""" -join ""
     $SteamCmdInsert = '$SteamCmd = ',"""$SetCmdPath\steamcmd.exe""" -join ""
     $Scriptinit = @'
-$ServerArgs = " -GameMode $ServerGM -MapName $ServerMap -SessionName $ServerName -NumPlayers $PlayerCount ?Port=$ServerPort?","QueryPort=$ServerQuery -log " -join "" 
+$ServerArgs = " -GameMode $ServerGM -MapName $ServerMap -SessionName $ServerName -NumPlayers $PlayerCount ?Port=$ServerPort","?QueryPort=$ServerQuery -log " -join "" 
 '@
     
     $ScriptUpdateArgs = @'
