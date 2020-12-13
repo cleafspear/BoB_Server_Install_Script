@@ -196,7 +196,7 @@ function CheckPass {
                 echo "stopping server with process id $proc"
                 Kill-Tree -ppid $proc
                 $Savecontent[$i]='restart=false'
-                Set-Content -path $SaveData -Value $Savecontent
+                Set-Content -path $StateData -Value $Savecontent
             }  
          }
      }
