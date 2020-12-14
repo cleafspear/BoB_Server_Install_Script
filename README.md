@@ -1,4 +1,4 @@
-# BoB_Server_Install_Script
+# BoB Server Install Script
 This script is a all in one install script for the dedicated server of Beasts of Bermuda.
 
 It will automatically install Steam Command if needed, and setup the needed scripts to get a Beasts of Bermuda server running. 
