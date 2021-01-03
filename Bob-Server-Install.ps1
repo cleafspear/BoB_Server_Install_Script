@@ -1,6 +1,14 @@
 #if you are reading this, you need to right click the file and "Run with PowerShell"
 
 
+#some locations require admin access to install to. we just require it by default
+If (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))
+{
+  # Relaunch as an elevated process:
+  Start-Process powershell.exe "-File",('"{0}"' -f $MyInvocation.MyCommand.Path) -Verb RunAs
+  exit
+}
+
 
 Function Start1 {
     Echo "Do you have Steam Command Already installed?"
@@ -26,7 +34,7 @@ Function InstallStm {
     Echo "Installing SteamCommand at $SetCmdPath"
     New-Item -ItemType Directory -Force -Path $SetCmdPath | Out-Null
     Echo "Downloading Steamcommand from offical Source"
-    Invoke-WebRequest -Uri "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip" -OutFile "$SetCmdPath\steamcmd.zip"
+    Invoke-WebRequest -Uri "http://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip" -OutFile "$SetCmdPath\steamcmd.zip" #https has been broken for this link, but http works.
     Echo "Unzipping Download"
     Expand-Archive -LiteralPath "$SetCmdPath\steamcmd.zip" -DestinationPath $SetCmdPath -Force
     Echo "Forcing update to Steam Command. This may take a few minutes"
