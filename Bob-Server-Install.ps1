@@ -249,7 +249,7 @@ Function CreateScedualedTask {
         'y'{Echo "Creating a restart entry in Task Sceduler"
             $action = New-ScheduledTaskAction -Execute "$SetSvrPath\Restart.bat"
             $trigger =  New-ScheduledTaskTrigger -Daily -At 12am
-            Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "BeastsOfBermuda Restart" -Description "Daily Restart of the Beast of Bermuda Server"
+            Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "BeastsOfBermuda $ServerName Restart" -Description "Daily Restart of the Beast of Bermuda Server"
         }
         'n'{Echo "You will need to create an entry in task scheduler that runs $SetSvrPath\Restart.bat at your perferred time"}
         default {
