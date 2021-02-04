@@ -135,7 +135,7 @@ Powershell.exe -executionpolicy remotesigned -File  "$SetSvrPath\Server.ps1"
             BuildAdvancedScript -stype 3
             Set-Content -path $SetSvrPath\Server.ps1 -Value $SSourceCode
             Echo "Generating Restart.bat and installing at $SetSvrPath"
-            $ScriptSource = "echo [BoB State Manager]>""$SetSvrPath\Automation\State.ini"" && echo restart=true>>""$SetSvrPath\Automation\State.ini"""
+            $ScriptSource = "echo [BoB State Manager]>""$SetSvrPath\Automation\State.ini"" && echo restart=true>""$SetSvrPath\Automation\State.ini"""
             Set-Content -path $SetSvrPath\Restart.bat -Value $ScriptSource
             Echo "Adding automation file and folder at $SetSvrPath\Automation\State.ini"
             New-Item -ItemType Directory -Force -Path $SetSvrPath\Automation | Out-Null
